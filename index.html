@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lee OTP 验证器 · 隐私政策 / Privacy Policy</title>
+<style>
+  :root{
+    --accent:#5247F0; --accent-soft:#EEEDFF;
+    --ink:#1C1B2B; --ink-2:#4A4E68; --ink-3:#7C8298;
+    --bg:#F7F8FC; --card:#fff; --line:#E6E8F2;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.75 "Segoe UI","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  header img{width:46px;height:46px;border-radius:13px}
+  header h1{font-size:24px;margin:0;letter-spacing:-.3px}
+  .meta{color:var(--ink-3);font-size:14px;margin:0 0 36px 60px}
+  .lede{
+    background:var(--accent-soft);border-left:4px solid var(--accent);
+    padding:18px 22px;border-radius:0 12px 12px 0;margin:0 0 40px;
+    color:#332D9E;font-weight:600;
+  }
+  h2{font-size:18px;margin:44px 0 12px;letter-spacing:-.2px}
+  h2 .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;
+    font-size:13px;font-weight:700;margin-right:10px;vertical-align:2px;
+  }
+  p,li{color:var(--ink-2)}
+  ul{padding-left:22px}
+  li{margin:7px 0}
+  strong{color:var(--ink)}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#FAFBFF;color:var(--ink);font-weight:700;font-size:13.5px}
+  td:first-child{white-space:nowrap;color:var(--ink);font-weight:600}
+  .no{color:#0E8A62;font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 22px 18px;
+        box-shadow:0 1px 3px rgba(28,27,43,.04)}
+  hr{border:0;border-top:1px solid var(--line);margin:56px 0}
+  footer{color:var(--ink-3);font-size:13.5px;margin-top:44px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(82,71,240,.28)}
+  .en{display:none}
+  body.en-mode .zh{display:none}
+  body.en-mode .en{display:block}
+  .toggle{position:fixed;right:22px;top:22px;background:#fff;border:1px solid var(--line);
+          border-radius:999px;padding:8px 16px;font:600 13px/1 inherit;color:var(--accent);
+          cursor:pointer;box-shadow:0 2px 10px rgba(28,27,43,.08)}
+  .toggle:hover{background:var(--accent-soft)}
+  @media(max-width:560px){.wrap{padding:32px 18px 64px}.meta{margin-left:0}header h1{font-size:20px}}
+</style>
+</head>
+<body>
+<button class="toggle" onclick="document.body.classList.toggle('en-mode')">中文 / English</button>
+
+<div class="wrap">
+  <header>
+    <img src="data:image/png;base64,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" alt="Lee OTP">
+    <h1>Lee OTP 验证器 · 隐私政策</h1>
+  </header>
+  <p class="meta zh">最后更新：2026 年 11 月 12 日 · 适用于 1.0.0 及以后版本</p>
+  <p class="meta en">Last updated: November 12, 2026 · Applies to version 1.0.0 and later</p>
+
+  <!-- ============ 中文 ============ -->
+  <div class="zh">
+    <p class="lede">一句话：你的两步验证密钥只存在你自己的浏览器里。我们没有任何服务器，也没有任何方式看到你的密钥、账户或验证码。</p>
+
+    <h2><span class="num">1</span>我们收集哪些数据</h2>
+    <p><strong>不收集。</strong>本扩展没有账号系统、没有统计埋点、没有崩溃上报、没有广告 SDK，也不会向任何服务器发送你的使用数据。</p>
+    <table>
+      <tr><th>数据类型</th><th>是否收集</th></tr>
+      <tr><td>两步验证密钥（TOTP / HOTP secret）</td><td>仅保存在本机，<span class="no">不上传</span></td></tr>
+      <tr><td>账户名称、发行方、备注</td><td>仅保存在本机，<span class="no">不上传</span></td></tr>
+      <tr><td>浏览记录、访问过的网站</td><td><span class="no">不收集</span></td></tr>
+      <tr><td>个人身份信息（姓名、邮箱、电话）</td><td><span class="no">不收集</span></td></tr>
+      <tr><td>位置、设备标识、IP</td><td><span class="no">不收集</span></td></tr>
+      <tr><td>使用行为、点击流、崩溃日志</td><td><span class="no">不收集</span></td></tr>
+    </table>
+
+    <h2><span class="num">2</span>数据存在哪里</h2>
+    <p>所有密钥与设置都通过浏览器提供的 <code>chrome.storage</code> 接口保存在<strong>本机浏览器配置目录</strong>中。卸载扩展时，这些数据会随扩展一同被浏览器删除。</p>
+    <p>如果启用主密码，密钥会先用 <strong>Argon2</strong> 从你的密码派生出加密密钥，再以密文形式保存；密码本身不会被保存，也不会离开本机。</p>
+
+    <h2><span class="num">3</span>什么时候会联网</h2>
+    <ul>
+      <li><strong>除下一条的时钟校准外，不发起任何网络请求。</strong>验证码由本机密钥按 RFC 6238 算法计算，不需要网络。</li>
+      <li>打开弹窗时（以及点击「校准时间」时），会向 <code>https://www.google.com/generate_204</code> 发一次空的 <code>HEAD</code> 请求，只用于读取服务器时间、修正本机时钟偏差（TOTP 依赖准确时间）。该请求不携带任何账户、密钥、验证码或页面内容，返回体为空。</li>
+      <li>1.0.0 版本<strong>未启用</strong>任何把密钥送出本机的功能：云备份（Google Drive / OneDrive / Dropbox）已移除入口，浏览器账号同步（<code>chrome.storage.sync</code>）的开关也已关闭，密钥只写入本机存储（<code>chrome.storage.local</code>）。若后续版本启用上述任一功能，必须由你主动开启并确认，在你操作之前不会发生任何上传。</li>
+    </ul>
+
+    <h2><span class="num">4</span>是否与第三方共享</h2>
+    <p><strong>不共享、不出售、不转让。</strong>本扩展不集成任何第三方分析、广告或数据服务。</p>
+
+    <h2><span class="num">5</span>权限用来做什么</h2>
+    <div class="card">
+    <table>
+      <tr><th>权限</th><th>用途</th></tr>
+      <tr><td>storage</td><td>保存验证密钥与偏好设置</td></tr>
+      <tr><td>activeTab</td><td>你点击扩展图标时读取当前标签页，用于填入验证码</td></tr>
+      <tr><td>alarms</td><td>闲置计时，到点自动锁定并清除内存中的密钥</td></tr>
+      <tr><td>scripting</td><td>你主动触发填充时，把验证码写进当前页面输入框</td></tr>
+      <tr><td>clipboardWrite<br>（可选）</td><td>你点「复制」时把验证码写入剪贴板。仅在首次点击复制时申请</td></tr>
+      <tr><td>contextMenus<br>（可选）</td><td>提供右键菜单快速填入。仅在设置中开启该功能时申请</td></tr>
+      <tr><td>网站访问权限<br>（http/https）</td><td>识别页面上的验证码输入框。内容脚本只做「找输入框 + 写入数字」，<strong>不读取、不记录、不上传页面内容</strong></td></tr>
+    </table>
+    </div>
+
+    <h2><span class="num">6</span>你的控制权</h2>
+    <ul>
+      <li>随时在扩展内删除任意账户，删除是立即且不可恢复的</li>
+      <li>随时导出备份文件，把数据带走</li>
+      <li>随时卸载扩展，本机数据随之一并清除</li>
+      <li>关闭「自动填充」后，扩展不会向任何网页写入内容</li>
+    </ul>
+
+    <h2><span class="num">7</span>儿童隐私</h2>
+    <p>本扩展不面向 13 岁以下儿童，也不会有意收集其任何信息。</p>
+
+    <h2><span class="num">8</span>政策变更</h2>
+    <p>若未来版本改变数据处理方式，会在本页更新并修改顶部日期；涉及新增数据收集时，会在扩展内明确提示并由你主动确认。</p>
+
+    <h2><span class="num">9</span>联系方式</h2>
+    <p>对本政策有疑问，或想报告安全问题，请联系：<a href="mailto:leevir7777@gmail.com">leevir7777@gmail.com</a></p>
+
+    <h2><span class="num">10</span>开源</h2>
+    <p>本项目基于开源项目 Authenticator（authenticator.cc）二次开发，遵循 MIT 协议。源代码随扩展一同分发，可自行审计上述所有行为。</p>
+  </div>
+
+  <!-- ============ English ============ -->
+  <div class="en">
+    <p class="lede">In one line: your two-factor secrets stay in your own browser. We have no servers, and no way to see your secrets, accounts or codes.</p>
+
+    <h2><span class="num">1</span>What we collect</h2>
+    <p><strong>Nothing.</strong> There is no account system, no analytics, no crash reporting, no ad SDK, and no usage data is sent anywhere.</p>
+    <table>
+      <tr><th>Data type</th><th>Collected</th></tr>
+      <tr><td>TOTP / HOTP secrets</td><td>Stored locally only, <span class="no">never uploaded</span></td></tr>
+      <tr><td>Account names, issuers, notes</td><td>Stored locally only, <span class="no">never uploaded</span></td></tr>
+      <tr><td>Browsing history / visited sites</td><td><span class="no">Not collected</span></td></tr>
+      <tr><td>Personal identifiers (name, email, phone)</td><td><span class="no">Not collected</span></td></tr>
+      <tr><td>Location, device IDs, IP address</td><td><span class="no">Not collected</span></td></tr>
+      <tr><td>Usage behaviour, clickstream, crash logs</td><td><span class="no">Not collected</span></td></tr>
+    </table>
+
+    <h2><span class="num">2</span>Where data is stored</h2>
+    <p>All secrets and settings are kept in your <strong>local browser profile</strong> via the <code>chrome.storage</code> API. Uninstalling the extension removes them along with it.</p>
+    <p>If you set a master password, secrets are encrypted with a key derived from it using <strong>Argon2</strong>. The password itself is never stored and never leaves your device.</p>
+
+    <h2><span class="num">3</span>When it goes online</h2>
+    <ul>
+      <li><strong>Without cloud backup: never.</strong> Codes are computed locally per RFC 6238 and need no network.</li>
+      <li>"Sync time" sends one request to Google's public time endpoint. It returns the current time only and carries no account data.</li>
+      <li>Version 1.0.0 does <strong>not</strong> enable anything that sends secrets off your device: cloud backup (Google Drive / OneDrive / Dropbox) has no entry point, and browser account sync (<code>chrome.storage.sync</code>) is switched off. Secrets are written to local storage only (<code>chrome.storage.local</code>). If a later version enables either feature, it will require you to turn it on explicitly; nothing is uploaded before you do.</li>
+    </ul>
+
+    <h2><span class="num">4</span>Third parties</h2>
+    <p><strong>No sharing, no selling, no transfer.</strong> The extension bundles no third-party analytics, advertising or data services.</p>
+
+    <h2><span class="num">5</span>What each permission is for</h2>
+    <div class="card">
+    <table>
+      <tr><th>Permission</th><th>Purpose</th></tr>
+      <tr><td>storage</td><td>Store secrets and preferences</td></tr>
+      <tr><td>activeTab</td><td>Read the current tab when you click the icon, to fill in the code</td></tr>
+      <tr><td>alarms</td><td>Idle timer that locks the vault and wipes the in-memory key</td></tr>
+      <tr><td>scripting</td><td>Write the code into the page's input when you trigger autofill</td></tr>
+      <tr><td>clipboardWrite<br>(optional)</td><td>Copy the code when you click copy; requested on first copy only</td></tr>
+      <tr><td>contextMenus<br>(optional)</td><td>Right-click menu for quick fill; requested only when you enable it in settings</td></tr>
+      <tr><td>Host access<br>(http/https)</td><td>Detect code input fields. The content script only locates the field and writes digits — it <strong>does not read, record or upload page content</strong></td></tr>
+    </table>
+    </div>
+
+    <h2><span class="num">6</span>Your control</h2>
+    <ul>
+      <li>Delete any account at any time — deletion is immediate and irreversible</li>
+      <li>Export a backup file whenever you want to take your data elsewhere</li>
+      <li>Uninstall the extension to remove all local data</li>
+      <li>Turn off autofill and the extension will not write to any page</li>
+    </ul>
+
+    <h2><span class="num">7</span>Children</h2>
+    <p>This extension is not directed at children under 13 and does not knowingly collect any information from them.</p>
+
+    <h2><span class="num">8</span>Changes</h2>
+    <p>If a future version changes how data is handled, this page and its date will be updated. Any new data collection will be announced in the extension and require your explicit consent.</p>
+
+    <h2><span class="num">9</span>Contact</h2>
+    <p>Questions about this policy or security reports: <a href="mailto:leevir7777@gmail.com">leevir7777@gmail.com</a></p>
+
+    <h2><span class="num">10</span>Open source</h2>
+    <p>Built on the open-source Authenticator project (authenticator.cc), released under the MIT license. The source ships with the extension, so every claim above can be audited.</p>
+  </div>
+
+  <footer>
+    Lee OTP · <span class="zh">本页可离线保存，也可托管到任意静态站点</span><span class="en">This page can be saved offline or hosted on any static site</span>
+  </footer>
+</div>
+</body>
+</html>
